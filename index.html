@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Navigation Menu</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 2000px; /* Just to show scrolling effect */
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navigation styles */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      transition: all 0.3s ease;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+
+    .navbar.scrolled {
+      background-color: #333;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .navbar a {
+      color: #fff;
+      padding: 12px 20px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #fff;
+      color: #333;
+      border-radius: 4px;
+    }
+
+    .content {
+      padding-top: 300px; /* So content isn't hidden behind fixed navbar */
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar" id="navbar">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="content">
+    <h1>Scroll down to see the navbar change!</h1>
+    <p>Hover over the menu items to see hover effects.</p>
+    <p>Keep scrolling to test the fixed position.</p>
+  </div>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
